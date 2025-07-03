@@ -6,7 +6,14 @@ logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 # Load SpaCy model
-nlp = spacy.load("en_core_web_md")
+import spacy.cli
+
+try:
+    nlp = spacy.load("en_core_web_md")
+except OSError:
+    spacy.cli.download("en_core_web_md")
+    nlp = spacy.load("en_core_web_md")
+
 
 # Predefined skill keywords
 KNOWN_SKILLS = {
