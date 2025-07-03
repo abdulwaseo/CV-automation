@@ -1,6 +1,9 @@
 # 📄 CV Screening System (Flask + ML)
 
-This project automates the process of screening CVs by:
+[🔗 View Project on GitHub](https://github.com/abdulwaseo/CV-automation)
+
+This project automates the process of screening CVs by...
+
 - Fetching CVs from Gmail
 - Matching keywords from the Job Description
 - Ranking candidates using a Machine Learning model
