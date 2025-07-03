@@ -1,0 +1,69 @@
+2025-07-01 00:19:15,121 - INFO - 🚀 CV Automation Pipeline Started
+2025-07-01 00:19:15,122 - INFO - Connecting to Gmail...
+2025-07-01 00:19:19,953 - INFO - Connected. Logging in...
+2025-07-01 00:19:21,901 - INFO - Login successful.
+2025-07-01 00:19:22,634 - INFO - 🔍 Using search: ['SINCE', '30-Jun-2025', 'OR', ['SUBJECT', 'CV'], ['SUBJECT', 'Application']]
+2025-07-01 00:19:22,634 - INFO - Performing email search...
+2025-07-01 00:19:23,951 - INFO - Search completed.
+2025-07-01 00:19:23,951 - INFO - 📬 Found 3 email(s).
+2025-07-01 00:19:27,209 - INFO - ✅ Downloaded: 59_Abdul_Waseo_CV.docx
+2025-07-01 00:19:27,220 - INFO - ✅ Downloaded: 60_cv_6.docx
+2025-07-01 00:19:27,230 - INFO - ✅ Downloaded: 61_cv_6.docx
+2025-07-01 00:19:27,230 - INFO - 📂 Files saved in CVs/: ['59_Abdul_Waseo_CV.docx', '60_cv_6.docx', '61_cv_6.docx']
+2025-07-01 00:19:28,508 - INFO - ✅ Matched (1) → 59_Abdul_Waseo_CV.docx
+2025-07-01 00:19:28,623 - INFO - ✅ Matched (2) → 60_cv_6.docx
+2025-07-01 00:19:28,726 - INFO - ✅ Matched (2) → 61_cv_6.docx
+2025-07-01 00:19:28,736 - INFO - 📊 Summary: 3 CVs processed, 2 matched and saved.
+2025-07-01 00:19:28,738 - INFO - ✅ Extracted CVs saved to filtered.csv
+2025-07-01 00:19:28,742 - INFO - ✅ Pipeline Completed in 13.62 seconds
+2025-07-01 00:33:36,888 - INFO - 🚀 CV Automation Pipeline Started
+2025-07-01 00:33:36,893 - INFO - Connecting to Gmail...
+2025-07-01 00:33:39,328 - INFO - Connected. Logging in...
+2025-07-01 00:33:41,028 - INFO - Login successful.
+2025-07-01 00:33:41,958 - INFO - 🔍 Using search: ['SINCE', '30-Jun-2025', 'OR', ['SUBJECT', 'CV'], ['SUBJECT', 'Application']]
+2025-07-01 00:33:41,959 - INFO - Performing email search...
+2025-07-01 00:33:43,386 - INFO - Search completed.
+2025-07-01 00:33:43,387 - INFO - 📬 Found 3 email(s).
+2025-07-01 00:33:47,409 - INFO - ✅ Downloaded: 59_Abdul_Waseo_CV.docx
+2025-07-01 00:33:47,420 - INFO - ✅ Downloaded: 60_cv_6.docx
+2025-07-01 00:33:47,430 - INFO - ✅ Downloaded: 61_cv_6.docx
+2025-07-01 00:33:47,430 - INFO - 📂 Files saved in CVs/: ['59_Abdul_Waseo_CV.docx', '60_cv_6.docx', '61_cv_6.docx']
+2025-07-01 00:33:48,294 - INFO - ✅ Matched (4) → 59_Abdul_Waseo_CV.docx
+2025-07-01 00:33:48,408 - INFO - ✅ Matched (4) → 60_cv_6.docx
+2025-07-01 00:33:48,522 - INFO - ✅ Matched (4) → 61_cv_6.docx
+2025-07-01 00:33:48,534 - INFO - 📊 Summary: 3 CVs processed, 2 matched and saved.
+2025-07-01 00:33:48,536 - INFO - ✅ Extracted CVs saved to filtered.csv
+2025-07-01 00:33:48,540 - INFO - ✅ Pipeline Completed in 11.65 seconds
+2025-07-01 01:10:27,663 - INFO - 🚀 CV Automation Pipeline Started
+2025-07-01 01:10:27,666 - INFO - Connecting to Gmail...
+2025-07-01 01:10:29,785 - INFO - Connected. Logging in...
+2025-07-01 01:10:31,561 - INFO - Login successful.
+2025-07-01 01:10:32,290 - INFO - 🔍 Using search: ['SINCE', '30-Jun-2025', 'OR', ['SUBJECT', 'CV'], ['SUBJECT', 'Application']]
+2025-07-01 01:10:32,291 - INFO - Performing email search...
+2025-07-01 01:10:33,552 - INFO - Search completed.
+2025-07-01 01:10:33,553 - INFO - 📬 Found 3 email(s).
+2025-07-01 01:10:37,919 - INFO - ✅ Downloaded: 59_Abdul_Waseo_CV.docx
+2025-07-01 01:10:37,930 - INFO - ✅ Downloaded: 60_cv_6.docx
+2025-07-01 01:10:37,939 - INFO - ✅ Downloaded: 61_cv_6.docx
+2025-07-01 01:10:37,939 - INFO - 📂 Files saved in CVs/: ['59_Abdul_Waseo_CV.docx', '60_cv_6.docx', '61_cv_6.docx']
+2025-07-01 01:10:38,751 - INFO - ✅ Matched (4) → 59_Abdul_Waseo_CV.docx
+2025-07-01 01:10:38,863 - INFO - ✅ Matched (4) → 60_cv_6.docx
+2025-07-01 01:10:38,965 - INFO - ✅ Matched (4) → 61_cv_6.docx
+2025-07-01 01:10:38,977 - INFO - 📊 Summary: 3 CVs processed, 2 matched and saved.
+2025-07-01 01:10:38,979 - INFO - ✅ Extracted CVs saved to filtered.csv
+2025-07-01 01:10:38,982 - INFO - ✅ Pipeline Completed in 11.32 seconds
+2025-07-01 01:22:35,767 - INFO - 🚀 CV Automation Pipeline Started
+2025-07-01 01:22:35,768 - INFO - Connecting to Gmail...
+2025-07-01 01:22:38,010 - INFO - Connected. Logging in...
+2025-07-01 01:22:39,982 - INFO - Login successful.
+2025-07-01 01:22:40,805 - INFO - 🔍 Using search: ['SINCE', '30-Jun-2025', 'OR', ['SUBJECT', 'CV'], ['SUBJECT', 'Application']]
+2025-07-01 01:22:40,806 - INFO - Performing email search...
+2025-07-01 01:22:42,196 - INFO - Search completed.
+2025-07-01 01:22:42,196 - INFO - 📬 Found 3 email(s).
+2025-07-01 01:22:45,646 - INFO - ✅ Downloaded: 59_Abdul_Waseo_CV.docx
+2025-07-01 01:22:45,657 - INFO - ✅ Downloaded: 60_cv_6.docx
+2025-07-01 01:22:45,665 - INFO - ✅ Downloaded: 61_cv_6.docx
+2025-07-01 01:22:45,665 - INFO - 📂 Files saved in CVs/: ['59_Abdul_Waseo_CV.docx', '60_cv_6.docx', '61_cv_6.docx']
+2025-07-01 01:22:46,543 - WARNING - ⚠️ No valid CVs were processed.
+2025-07-01 01:22:46,543 - WARNING - ⚠️ No candidates matched or no CVs were found.
+2025-07-01 01:22:46,543 - INFO - ✅ Pipeline Completed in 10.78 seconds
