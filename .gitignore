@@ -11,3 +11,10 @@ __pycache__/
 filtered_cvs/
 CVs/
 rejected_cvs/
+venv/
+__pycache__/
+*.pyc
+.env
+filtered_cvs/
+CVs/
+rejected_cvs/
