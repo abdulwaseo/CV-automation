@@ -1,1 +1,13 @@
+# .gitignore
+
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
 .env
+.env.*
+*.zip
+filtered_cvs/
+CVs/
+rejected_cvs/
