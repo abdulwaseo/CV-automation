@@ -34,9 +34,59 @@ def extract_email(text):
 
 # Predefined keyword skill set
 skill_list = [
-    "Python", "Flask", "Django", "SQL", "AWS", "Project Management",
-    "Data Analysis", "Recruiting", "HRIS", "Excel", "Machine Learning"
+    # Programming Languages
+    "Python", "Java", "C", "C++", "C#", "JavaScript", "TypeScript",
+    "Ruby", "Go", "R", "PHP", "Swift", "Kotlin", "Perl", "Scala",
+    "Rust", "Shell Scripting", "Bash", "MATLAB", "HTML", "CSS", "SQL",
+
+    # Frameworks & Libraries
+    "Flask", "Django", "FastAPI", "Spring Boot", "React", "Angular", "Vue.js",
+    "Next.js", "Express.js", "jQuery", "Bootstrap", "Tailwind CSS",
+    "TensorFlow", "Keras", "PyTorch", "Scikit-learn", "NLTK", "OpenCV",
+    "Hugging Face", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Plotly",
+
+    # Databases
+    "MySQL", "PostgreSQL", "MongoDB", "SQLite", "Oracle", "SQL Server",
+    "MariaDB", "Redis", "Cassandra", "Firebase", "Elasticsearch", "BigQuery",
+
+    # Cloud Platforms & Services
+    "AWS", "Amazon Web Services", "Azure", "Google Cloud", "GCP", "DigitalOcean",
+    "Heroku", "Firebase", "Cloudflare", "Netlify", "Docker", "Kubernetes",
+    "Terraform", "Ansible", "Jenkins", "CI/CD", "Serverless", "S3", "EC2",
+    "Lambda", "Cloud Functions", "Kinesis", "CloudWatch", "Route 53", "VPC",
+
+    # DevOps & Tools
+    "Git", "GitHub", "GitLab", "Bitbucket", "Jira", "Trello", "Slack",
+    "Postman", "Figma", "VS Code", "IntelliJ", "PyCharm", "Eclipse", "Notion",
+    "Linux", "Unix", "Zsh", "Apache", "Nginx", "GraphQL", "REST API",
+    "SOAP", "Webpack", "Babel", "Agile", "Scrum", "Kanban", "CI/CD",
+
+    # Data Science & Analytics
+    "Data Analysis", "Data Visualization", "Data Cleaning", "Data Wrangling",
+    "Machine Learning", "Deep Learning", "Artificial Intelligence", "AI",
+    "Predictive Modeling", "Clustering", "Classification", "Regression",
+    "NLP", "Natural Language Processing", "EDA", "Business Intelligence",
+    "Power BI", "Tableau", "Looker", "Excel", "Advanced Excel", "Google Sheets",
+    "Statistical Analysis", "A/B Testing", "Time Series", "Big Data", "Hadoop",
+    "Spark", "ETL", "Data Engineering",
+
+    # Cybersecurity & Networking
+    "Cybersecurity", "Network Security", "Penetration Testing", "VAPT",
+    "Firewalls", "Wireshark", "VPN", "IDS", "IPS", "OWASP", "SSL", "TLS",
+
+    # Soft Skills & Other
+    "Project Management", "Leadership", "Team Management", "Recruiting",
+    "Communication", "Critical Thinking", "Problem Solving", "Creativity",
+    "Negotiation", "Adaptability", "Time Management", "Conflict Resolution",
+    "Decision Making", "Teamwork", "Collaboration", "Presentation", "Public Speaking",
+
+    # HR & Business
+    "HRIS", "HR Analytics", "Talent Acquisition", "Compensation", "Payroll",
+    "ATS", "Onboarding", "Employee Engagement", "Learning and Development",
+    "Business Strategy", "Market Research", "Salesforce", "CRM", "ERP",
+    "SAP", "Zoho", "HubSpot", "Excel Macros", "Pivot Tables"
 ]
+
 
 def extract_skills(text):
     """
@@ -120,27 +170,49 @@ def extract_experience(text):
         logger.error(f"❌ Error processing experience: {str(e)}")
         return None
 
-
-def extract_education(text):
+def extract_education(text: str) -> str:
     """
-    Extracts educational qualifications from the CV text.
-
-    Filters lines that:
-    - Match degree titles
-    - Do not include work/skill-related keywords
-
-    Returns:
-        str: Semi-colon separated education lines
+    Extract degree lines; skips lines with bad or informal keywords.
     """
-    education_lines = []
-    degree_keywords = r"\b(Bachelor(?:'s)?|Master(?:'s)?|Ph\.?D|MBA|BS|MS|B\.Sc|M\.Sc|B\.E|M\.E|BTech|MTech|Engineering|science)\b"
-    bad_keywords = r"(developed|worked|created|experience|years|project|python|flask|skills|devops|api|certificate|certified|internship|team|training|graduation)"
+    degree_keywords = re.compile(r"""
+        \b(
+            Bachelor(?:'s)?\s+(?:of\s+)?(?:Science|Arts|Engineering|Technology)? |
+            Master(?:'s)?\s+(?:of\s+)?(?:Science|Arts|Engineering|Technology)? |
+            B(?:\.|achelor)?\s?(?:Sc|A|E|Tech|IT|Eng)? |
+            M(?:\.|aster)?\s?(?:Sc|A|E|Tech|IT|Eng)? |
+            Ph\.?D |
+            MBA |
+            B\.?Sc | M\.?Sc | BSc | MSc |
+            B\.?E | M\.?E | BTech | MTech |
+            BS | MS |
+            Information\s+Technology |
+            Computer\s+Science | Software | Science
+        )\b
+    """, re.I | re.VERBOSE)
 
-    for line in text.split("\n"):
+    bad_keywords = re.compile(r"""
+        \b(
+            developed | worked | created | designed | implemented |
+            experience | years | project | built |
+            python | java | flask | django | react | node |
+            skills | devops | api | rest | fastapi | graphql |
+            certificate | certified | certification |
+            internship | team | collaboration | scrum | agile |
+            graduation | education | training | deployment |
+            cloud | aws | azure | gcp | docker | kubernetes |
+            seminar | attended | workshop | bootcamp | course | short\s+course | webinar |
+            i\s+think | don't\s+remember | clutch | master | god | lol |
+            haha | kinda | maybe | unsure | don't\s+know | no\s+idea |
+            guess | random | fake | test | References | continuing | ongoing 
+        )\b
+    """, re.I | re.VERBOSE)
+
+    results = []
+    for line in text.splitlines():
         line = line.strip().rstrip(".;")
-        if len(line) < 15 or len(line) > 150:
-            continue
-        if re.search(degree_keywords, line, re.IGNORECASE) and not re.search(bad_keywords, line, re.IGNORECASE):
-            education_lines.append(line)
+        if 15 <= len(line) <= 150 \
+           and degree_keywords.search(line) \
+           and not bad_keywords.search(line):
+            results.append(line)
 
-    return "; ".join(education_lines)
+    return "; ".join(results)

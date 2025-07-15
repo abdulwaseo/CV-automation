@@ -2,6 +2,9 @@ import os
 import logging
 import imapclient
 import pyzmail
+import ssl, certifi
+ssl_context = ssl.create_default_context(cafile=certifi.where())
+
 from config import EMAIL_SUBJECT_KEYWORDS  # Optional: move subject filters to config
 
 # Setup logger
@@ -23,7 +26,7 @@ def fetch_cvs_with_static_jd(email, password, folder='INBOX', since_date=None):
     """
     try:
         logger.info("📡 Connecting to Gmail IMAP...")
-        server = imapclient.IMAPClient('imap.gmail.com', ssl=True)
+        server = imapclient.IMAPClient('imap.gmail.com', ssl=True, ssl_context=ssl_context)
         server.login(email, password)
         server.select_folder(folder, readonly=True)
         logger.info("✅ Logged in and folder selected.")

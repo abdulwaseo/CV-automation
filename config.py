@@ -26,7 +26,7 @@ FILTERED_FOLDER = os.path.join(BASE_DIR, "filtered_cvs")
 
 # === Static JD Keywords (used when JD is not provided dynamically) ===
 STATIC_JD_KEYWORDS = {
-    "python", "sql", "java", "c++"
+    "python", "sql", "java", "c++","machine learning"
 }
 
 # === Matching & Filtering Parameters ===

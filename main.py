@@ -24,7 +24,7 @@ def run_pipeline():
 
     # === Step 1: Fetch CVs from email ===
     try:
-        since_date = (datetime.today() - timedelta(days=2)).strftime("%d-%b-%Y")
+        since_date = (datetime.today() - timedelta(days=14)).strftime("%d-%b-%Y")
         fetch_cvs_with_static_jd(
             EMAIL_ADDRESS, EMAIL_PASSWORD, since_date=since_date
         )
@@ -32,10 +32,14 @@ def run_pipeline():
         logging.error(f"❌ Failed to fetch CVs via IMAP: {e}")
 
     # === Step 2: Load JD and extract keywords ===
+    GENERIC_STOPWORDS = {
+        "cloud", "backend", "frontend", "software", "development",
+        "technology", "engineering", "team", "project", "experience"
+    }
     jd_path = os.path.join(os.path.dirname(__file__), "jd.txt")
     jd_text = load_jd_text(jd_path)
     jd_keywords = extract_keywords_from_jd(jd_text)
-
+    jd_keywords = {kw for kw in jd_keywords if kw not in GENERIC_STOPWORDS}
     if not jd_keywords:
         logging.error("❌ No keywords extracted from jd.txt. Check file content.")
         sys.exit("❌ No keywords found in JD. Terminating.")

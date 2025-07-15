@@ -88,7 +88,9 @@ def create_candidates_df_with_ata(cv_folder=CV_FOLDER,
 
         # ATA Scoring
         cv_text = data['text'].lower()
-        matched_keywords = [kw for kw in jd_keywords if kw.lower() in cv_text]
+        matched_keywords = [kw for kw in jd_keywords
+                            if kw.lower() in cv_text.lower()]
+
         matched_count = len(matched_keywords)
         total_keywords = len(jd_keywords)
         ata_score = round((matched_count / total_keywords) * 100, 1) if total_keywords > 0 else 0
