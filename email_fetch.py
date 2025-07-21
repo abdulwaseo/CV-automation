@@ -31,7 +31,7 @@ def fetch_cvs_with_static_jd(email, password, folder='INBOX', since_date=None):
         server.select_folder(folder, readonly=True)
         logger.info("✅ Logged in and folder selected.")
     except Exception as e:
-        logger.error(f"❌ IMAP connection/login failed: {e}")
+        logger.error(f"Login failed: {e}")
         return []
 
     search_criteria = [
@@ -64,10 +64,13 @@ def fetch_cvs_with_static_jd(email, password, folder='INBOX', since_date=None):
                     if ext in ALLOWED_EXTENSIONS:
                         unique_name = f"{msg_id}_{filename}"
                         cv_path = os.path.join("CVs", unique_name)
-                        with open(cv_path, 'wb') as f:
-                            f.write(part.get_payload())
-                        saved_files.append(unique_name)
-                        logger.info(f"✅ Downloaded: {unique_name}")
+                        try:
+                            with open(cv_path, 'wb') as f:
+                                f.write(part.get_payload())
+                            saved_files.append(unique_name)
+                            logger.info(f"✅ Downloaded: {unique_name}")
+                        except Exception as e:
+                            print(f"Failed to save attachment: {filename}", e)
     except Exception as e:
         logger.error(f"❌ Failed while fetching attachments: {e}")
 
